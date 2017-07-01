@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+	<meta charset="utf-8"/>
+	<title>Loteria del Saber</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="img/logo.png"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+</head>
+<body>
+	<div class="container-fluit">
+		<section class="row">
+				<section class="col-xs-12">	
+					<header>
+						<img class='logo-vallegrande' src="img/gv.jpg" alt="Error"></img>
+						<h1>Loteria del saber</h1>
+						<h2>Gimnasio Vallegrande</h2>
+					</header>
+				</section>
+		</section>
+		<div class='contenedor'>	
+			<section class="row">
+					<section class="col-xs-12 col-md-12 text-center">				
+							<h2 class="text-primary">Actividad 16</h2>					
+							<h5>Completa la oración con la palabra correspondiente según la imagen</h5>
+							<h5>(Has click sobre la palabra clave para responder)</h5>			
+					</section>
+			</section>
+		</div>
+		<section class="row">
+				<div id="content" class="col-xs-12 col-md-12 text-center container-activity">
+					<div id="elements">	
+						<h4 id="frase" style="color:red;">Estaba deliciosa esa ________</h4>	
+						<p><img src="img/sopa.jpg" alt="Error" title="Sopa"></img></p>
+
+						<div id="NRA5" data-text="NA" class="element element-activity-16">
+							mula
+						 </div>		 
+						<div id="NRA1" data-text="NA" class="element element-activity-16">
+							foca
+						</div>
+						<div id="NRA2" data-text="NA" class="element element-activity-16">
+							coco
+						</div>
+						<div id="NRA3" data-text="NA" class="element element-activity-16">
+							loma
+						</div>
+						<div id="NRA4" data-text="NA" class="element element-activity-16">
+							gato
+						</div>
+						<div id="RTA" data-text="NA" class="element element-activity-16">
+							sopa
+						</div>
+						<div id="NRA6" data-text="NA" class="element element-activity-16">
+							sapo
+						</div>
+					</div>	
+				</div>
+				<input type="hidden" id="score" value="0"></input>
+			</section>
+	</div>
+	<div class="clearfix visible-sm-block"></div>
+ 	<audio autoplay loop>
+			<source src="aud/cortina-bienvenida.ogg" type="audio/ogg"/>
+			<source src="aud/cortina-bienvenida.mp3" type="audio/mpeg"/>
+	</audio>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript">
+		
+		$("#RTA").click(function(){
+			playAudio("aud/correcto.mp3");
+			$("#RTA").addClass('correct');	
+			$("#frase").text("Estaba deliciosa esa sopa").fadeIn();
+			$("#frase").css('color','green'); 
+			setTimeout(function(){ $("#RTA").fadeOut(); },3000);
+			setTimeout(function(){ 
+				 	window.location.href="act17.html";
+				 	},3000);
+		});	
+
+		$("#NRA1").click(function(){ 
+			playAudio("aud/badtry.mp3");
+			$("#NRA1").addClass('incorrect');
+			setTimeout(function(){ $("#NRA1").fadeOut();},1000); });	
+
+		$("#NRA2").click(function(){ 
+			playAudio("aud/badtry.mp3");
+		 	$("#NRA2").addClass('incorrect');
+		 	setTimeout(function(){ $("#NRA2").fadeOut();},1000); });
+
+		$("#NRA3").click(function(){ 
+			playAudio("aud/badtry.mp3");
+			$("#NRA3").addClass('incorrect');
+			setTimeout(function(){ $("#NRA3").fadeOut();},1000); });
+
+		$("#NRA4").click(function(){ 
+			playAudio("aud/badtry.mp3");
+			$("#NRA4").addClass('incorrect');
+			setTimeout(function(){ $("#NRA4").fadeOut();},1000); });
+
+		$("#NRA5").click(function(){ 
+			playAudio("aud/badtry.mp3");
+			$("#NRA5").addClass('incorrect');
+			setTimeout(function(){ $("#NRA5").fadeOut();},1000); });
+
+		$("#NRA6").click(function(){ 
+			playAudio("aud/badtry.mp3");
+			$("#NRA6").addClass('incorrect');
+			setTimeout(function(){ $("#NRA6").fadeOut();},1000); });
+	</script>
+</body>
+</html>

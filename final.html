@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+	<meta charset="utf-8"/>
+	<title>Loteria del Saber</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="img/logo.png"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+</head>
+<body>
+<div class="container-fluit">
+		<section class="row">
+				<section class="col-xs-12">	
+					<header>
+						<img class='logo-vallegrande' src="img/gv.jpg" alt="Error"></img>
+						<h1>Loteria del saber</h1>
+						<h2>Gimnasio Vallegrande</h2>
+					</header>
+				</section>
+		</section>
+		<div class='contenedor'>	
+			<section class="row">
+				<section class="col-xs-12 col-md-12 text-center">				
+				</section>
+			</section>
+		</div>
+		<section class="row">
+			<section class="col-xs-12 col-md-12">
+				<audio autoplay loop>
+					<source src="aud/cortina-bienvenida.ogg" type="audio/ogg"/>
+					<source src="aud/cortina-bienvenida.mp3" type="audio/mpeg"/>
+				</audio>
+					<div class="row">
+						<a class="btn animated fadeInDownBig col-md-offset-4">							
+							<h1>¡Muchas Gracias Por Jugar!</h1>
+							<h5>Recuerda practicar constantemente esta lotería como tu habito de estudio</h5>
+							<h5>durante las vacaciones y llevar anotaciones de las actividades anteriormente realizadas</h5>
+							<h3>¡Hasta la próxima!</h3>
+							<img src="img/minion.png" title='¡Hasta Luego!'></img>
+						</a>
+					</div>
+				</div>
+			</section>
+		</section>
+	</div>
+	<div class="clearfix visible-sm-block"></div>
+	<footer>
+		<div class="container">
+			Aná Melissa Petro Corcho
+		</div>
+	</footer>
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(event){
+			setTimeout(function(){
+				playAudio("aud/aplausos.mp3");
+			},2000);
+		});
+	</script>
+</body>
+</html>

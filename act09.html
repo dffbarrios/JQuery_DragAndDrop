@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+	<meta charset="utf-8"/>
+	<title>Loteria del Saber</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="img/logo.png"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+</head>
+<body>
+	<div class="container-fluit">
+		<section class="row">
+				<section class="col-xs-12">	
+					<header>
+						<img class='logo-vallegrande' src="img/gv.jpg" alt="Error"></img>
+						<h1>Loteria del saber</h1>
+						<h2>Gimnasio Vallegrande</h2>
+					</header>
+				</section>
+		</section>
+		<div class='contenedor'>	
+			<section class="row">
+					<section class="col-xs-12 col-md-12 text-center">				
+							<h2 class="text-primary">Actividad 9</h2>					
+							<h5>Ubica la silaba correspondiente en el recuadro rojo</h5>
+							<h5>La imagen corresponde a una...</h5>			
+					</section>
+			</section>
+		</div>
+		<section class="row">
+				<div id="content" class="col-xs-12 col-md-12 text-center container-activity">
+					<div id="elements">		
+						<div id="tDA" data-text="DA" class="element element-activity-9">
+							da
+						 </div>					 
+						<div id="tVE" data-text="VE" class="element element-activity-9">
+							ve
+						</div>	
+						<div id="tLLA" data-text="LLA" class="element element-activity-9">
+							 lla
+						 </div>	
+						 <div id="tMA" data-text="MA" class="element element-activity-9">
+							ma
+						 </div>						
+					</div>
+					 <img src="img/llave.jpg" alt="Error" title="LLave" style="margin-top: 2em;"></img>				
+				</div>
+				<div class="col-xs-12 col-md-12 text-center" class="row" style="margin-top: -5em;">	
+					<div id="rLLA" data-text="LLA" class="response-activity-9">
+					</div>
+					<div id="rVE" data-text="VE" class="response-activity-9">
+					</div>
+				</div>
+				<input type="hidden" id="score" value="0"></input>
+		</section>
+	</div>
+	<div class="clearfix visible-sm-block"></div>
+ 	<audio autoplay loop>
+			<source src="aud/cortina-bienvenida.ogg" type="audio/ogg"/>
+			<source src="aud/cortina-bienvenida.mp3" type="audio/mpeg"/>
+	</audio>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript">
+		$( init );
+		function init() {
+			$('#tDA').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tVE').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tLLA').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tMA').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });			
+			$('#rLLA').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#rVE').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+		}
+
+			function handleDropEvent( event, ui ){
+			  	var draggable = ui.draggable;
+			  	var t=ui.draggable.data( 'text' );
+			  	var r=$(this).data('text');
+			  	if(  t==r ){
+			  		playAudio("aud/correcto.mp3");
+				    ui.draggable.draggable( 'disable' );
+				    $(this).droppable( 'disable' );
+				    ui.draggable.addClass( 'correct');
+				    ui.draggable.draggable( 'option', 'revert', false );
+
+				    if($("#score").val()<=2){
+				    	$("#score").val(parseInt($("#score").val())+1);
+				    }
+
+				    if($("#score").val()==2){
+				    	playAudio("aud/aplausos.mp3");
+				    	setTimeout(function(){ window.location.href="act10.html" }, 4000);
+				    }
+			  	}else{
+			  		playAudio("aud/badtry.mp3");
+			  	}		
+		}
+		
+	</script>
+</body>
+</html>

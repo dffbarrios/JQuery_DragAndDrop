@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+	<meta charset="utf-8"/>
+	<title>Loteria del Saber</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="img/logo.png"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+</head>
+<body>
+	<div class="container-fluit">
+		<section class="row">
+				<section class="col-xs-12">	
+					<header>
+						<img class='logo-vallegrande' src="img/gv.jpg" alt="Error"></img>
+						<h1>Loteria del saber</h1>
+						<h2>Gimnasio Vallegrande</h2>
+					</header>
+				</section>
+		</section>
+		<div class='contenedor'>	
+			<section class="row">
+					<section class="col-xs-12 col-md-12 text-center">				
+							<h2 class="text-primary">Actividad 11</h2>					
+							<h5>Arrastra hasta el triangulo FRUTAS solo las variables X que corresponda a una fruta</h5>
+							<h5>(Arrastra solo el titulo de la variable: X1, X2, X3, X4, X5, no su imagen.)</h5>			
+					</section>
+			</section>
+		</div>
+			<section class="row">
+				<div id="content" class="col-xs-12 col-md-12 text-center container-activity">
+					<div id="elements">		
+						<div class="container-element-activity-11">
+							<div id="tX1" data-text="X1" class="text-element-activity-11">X1</div>
+							<img src="img/xpera.jpg" title="Pera" alt="Error"></img>
+						</div>					 
+						<div class="container-element-activity-11">
+							<div id="tX2" data-text="X2" class="text-element-activity-11">X2</div>
+							<img src="img/xgato.jpg" title="Gato" alt="Error"></img>
+						</div>		
+						<div class="container-element-activity-11">
+							<div id="tX3" data-text="X3" class="text-element-activity-11">X3</div>
+							<img src="img/xmanzana.jpg" title="Manzana" alt="Error"></img>
+						</div>		
+						<div class="container-element-activity-11">
+							<div id="tX4" data-text="X4" class="text-element-activity-11">X4</div>
+							<img src="img/xuva.jpg" title="Uva" alt="Error"></img>
+						</div>		
+						<div class="container-element-activity-11">
+							<div id="tX5" data-text="X5" class="text-element-activity-11">X5</div>
+							<img src="img/xfoca.jpg" title="Foca" alt="Error"></img>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12 text-center" class="row" style="margin-top: -16em;">	
+					<img id="responses" title="Coloca solo el texto de la imagen" src="img/triangulo-frutas.png" alt="Error"></img>
+				</div>
+				<input type="hidden" id="score" value="0"></input>
+			</section>
+	</div>			
+	<div class="clearfix visible-sm-block"></div>
+ 	<audio autoplay loop>
+			<source src="aud/cortina-bienvenida.ogg" type="audio/ogg"/>
+			<source src="aud/cortina-bienvenida.mp3" type="audio/mpeg"/>
+	</audio>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript">
+		$( init );
+		function init() {
+			$('#tX1').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tX2').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tX3').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tX4').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });	
+			$('#tX5').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });	
+			$('#responses').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+		}
+
+			function handleDropEvent( event, ui ){
+			  	var draggable = ui.draggable;
+			  	var t=ui.draggable.data( 'text' );
+			  	var r=$(this).data('text');
+			  	if(  t=="X1" || t=="X3" || t=="X4" ){
+			  		playAudio("aud/correcto.mp3");
+				    ui.draggable.draggable( 'disable' );
+				    ui.draggable.addClass( 'correct');
+				    ui.draggable.draggable( 'option', 'revert', false );
+
+				    if($("#score").val()<3){
+				    	$("#score").val(parseInt($("#score").val())+1);
+				    }
+
+				    if($("#score").val()==3){
+				    	playAudio("aud/aplausos.mp3");
+				    	setTimeout(function(){ window.location.href="act12.html" }, 4000);
+				    }
+			  	}else{
+			  		playAudio("aud/badtry.mp3");
+			  	}		
+		}
+		
+	</script>
+</body>
+</html>

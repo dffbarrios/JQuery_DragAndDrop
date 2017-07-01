@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+	<meta charset="utf-8"/>
+	<title>Loteria del Saber</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="img/logo.png"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+</head>
+<body>
+	<div class="container-fluit">
+			<section class="row">
+					<section class="col-xs-12">	
+						<header>
+							<img class='logo-vallegrande' src="img/gv.jpg" alt="Error"></img>
+							<h1>Loteria del saber</h1>
+							<h2>Gimnasio Vallegrande</h2>
+						</header>
+					</section>
+			</section>
+			<div class='contenedor'>	
+				<section class="row">
+						<section class="col-xs-12 col-md-12 text-center">				
+								<h2 class="text-primary">Actividad 2</h2>					
+								<h5>Arrastra hasta el recuadro rojo la parte de la planta que corresponda</h5>			
+						</section>
+				</section>
+				<section id="content" class="row">
+						<div class="row">
+							<div id="elements" class="col-xs-12">						
+								<div id="tRaiz" data-key="raiz" class="element element-2">
+									<p>Raíz</p>
+								 </div>	
+								 <div id="tTallo" data-key="tallo" class="element element-2">
+									<p>Tallo</p>
+								 </div>
+								 <div id="tHoja" data-key="hoja"  class="element element-2">
+									<p>Hojas</p>
+								 </div>
+								 <div id="tFlor" data-key="flor"  class="element element-2">
+									<p>Flores</p>
+								 </div>
+								 <div id="tFruto" data-key="fruto" class="element element-2">
+									<p>Frutos</p>
+								 </div>						 
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<img src="img/planta.jpg" alt="Error"> </img>									
+							</div>				
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div id="responses-activity-2" class="responses-activity-2">
+									<div id="sFruto" data-key="fruto" class="response-activity-2">
+										<img src="img/fruto.jpg" alt="Error" class='imagen-response-activity-2' title="Fruto"></img>
+									</div>
+									<div id="sHoja" data-key="hoja" class="response-activity-2">
+										<img src="img/hoja.jpg" alt="Error" class='imagen-response-activity-2' title="Hojas"></img>
+									</div>
+									<div id="sRaiz" data-key="raiz" class="response-activity-2">
+										<img src="img/raiz.jpg" alt="Error" class='imagen-response-activity-2' title="Raiz"></img>
+									</div>
+									<div id="sFlor" data-key="flor" class="response-activity-2">
+										<img src="img/flor.jpg"" alt="Error" class='imagen-response-activity-2' title="Flor"></img>
+									</div>
+									<div id="sTallo" data-key="tallo" class="response-activity-2">
+										<img src="img/tallo.jpg" alt="Error" class='imagen-response-activity-2' title="Tallo"></img>
+									</div>
+								</div>							
+							</div>						
+						</div>
+					<input type="hidden" id="score" value="0"/>
+				</section>
+			</div>
+	</div>
+	<div class="clearfix visible-sm-block"></div>
+ 	<audio autoplay loop>
+			<source src="aud/cortina-bienvenida.ogg" type="audio/ogg"/>
+			<source src="aud/cortina-bienvenida.mp3" type="audio/mpeg"/>
+	</audio>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript">
+		$( init );
+		function init() {
+			$('#tRaiz').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tHoja').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tFruto').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tFlor').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#tTallo').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+
+			$('#sRaiz').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#sHoja').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#sFruto').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#sFlor').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#sTallo').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+		}
+
+		function handleDropEvent( event, ui ){
+		  	var draggable = ui.draggable;
+		  	var t=ui.draggable.data( 'key' );
+		  	var r=$(this).data('key');
+		  	if(  t==r ){
+		  		playAudio("aud/correcto.mp3");
+			    ui.draggable.draggable( 'disable' );
+			    $(this).droppable( 'disable' );
+			    ui.draggable.addClass( 'correct');
+			    ui.draggable.draggable( 'option', 'revert', false );
+
+			    if($("#score").val()<=5){
+			    	$("#score").val(parseInt($("#score").val())+1);
+			    }
+
+			    if($("#score").val()==5){
+			    	playAudio("aud/aplausos.mp3");
+			    	setTimeout(function(){ window.location.href="act03.html" }, 4000);
+			    }
+		  	}else{ playAudio("aud/badtry.mp3"); }		
+		}		
+	</script>
+</body>
+</html>

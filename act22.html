@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+	<meta charset="utf-8"/>
+	<title>Loteria del Saber</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="img/logo.png"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+</head>
+<body>
+	<div class="container-fluit">
+		<section class="row">
+				<section class="col-xs-12">	
+					<header>
+						<img class='logo-vallegrande' src="img/gv.jpg" alt="Error"></img>
+						<h1>Loteria del saber</h1>
+						<h2>Gimnasio Vallegrande</h2>
+					</header>
+				</section>
+		</section>
+		<div class='contenedor'>	
+			<section class="row">
+				<section class="col-xs-12 col-md-12 text-center">				
+					<h2 class="text-primary">Actividad 22</h2>					
+					<h5>Escoge y ubica el número que va antes y después del número dado</h5>					
+					<h5>(Selecciona y Arrastra con el Mouse)</h5>
+				</section>
+			</section>
+		</div>
+		<div class="contenedor" style="margin-top:3em; background-color: red;">
+			<section class="row col-xs-12 col-md-12">
+				<div id="content" class="row col-xs-12 col-md-12 container-activity">
+					<div id="elements">						
+						 <div id="n30" data-number="30" class="element element-activity-23">
+							<p>30</p>
+						 </div>	
+						 <div id="n31" data-number="31" class="element element-activity-23">
+							<p>31</p>
+						 </div>		
+						 <div id="n32" data-number="32" class="element element-activity-23">
+							<p>32</p>
+						 </div>		
+						 <div id="n33" data-number="33" class="element element-activity-23">
+							<p>33</p>
+						 </div>		
+						 <div id="n34" data-number="34" class="element element-activity-23">
+							<p>34</p>
+						 </div>		
+						 <div id="n36" data-number="36" class="element element-activity-23">
+							<p>36</p>
+						 </div>		
+						 <div id="n38" data-number="38" class="element element-activity-23">
+							<p>38</p>
+						 </div>		
+						 <div id="n40" data-number="40" class="element element-activity-23">
+							<p>40</p>
+						 </div>							 
+					</div>				
+				<div class="row">
+					<div class="row col-xs-12 col-md-12">
+						<div id="responses-activity-2" class="responses-activity-2">
+							<div id="r30" data-number="30" class="response-activity-23">?</div>
+							<div id="r31" data-number="31" class="response-activity-23">?</div>
+							<div id="r32" data-number="32" class="response-activity-23">?</div>
+							<div id="r33" data-number="33" class="response-activity-23">?</div>
+							<div id="r34" data-number="34" class="response-activity-23">?</div>
+							<div id="r35" data-number="35" class="response-activity-23">35</div>
+							<div id="r36" data-number="36" class="response-activity-23">?</div>
+							<div id="r37" data-number="37" class="response-activity-23">37</div>
+							<div id="r38" data-number="38" class="response-activity-23">?</div>
+							<div id="r39" data-number="39" class="response-activity-23">39</div>
+							<div id="r40" data-number="40" class="response-activity-23">?</div>
+						</div>							
+					</div>						
+				</div>
+				<input type="hidden" id="score" value="0"/>
+			</div>
+			</section>
+		</div>	
+	</div>
+	<div class="clearfix visible-sm-block"></div>
+ 	<audio autoplay loop>
+			<source src="aud/cortina-bienvenida.ogg" type="audio/ogg"/>
+			<source src="aud/cortina-bienvenida.mp3" type="audio/mpeg"/>
+	</audio>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript">
+		$( init );
+		function init() {
+			$('#n30').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#n31').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#n32').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#n33').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#n34').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#n36').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#n38').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#n40').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			
+
+			$('#r30').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r31').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r32').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r33').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r34').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r35').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r36').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r37').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r38').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r39').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+			$('#r40').droppable( { accept: '#elements div', hoverClass: 'hovered', drop: handleDropEvent });
+		}
+
+		function handleDropEvent( event, ui ){
+		  	var draggable = ui.draggable;
+		  	var t=ui.draggable.data( 'number' );
+		  	var r=$(this).data('number');
+		  	if(  t==r ){
+		  		playAudio("aud/correcto.mp3");
+			    ui.draggable.draggable( 'disable' );
+			    $(this).droppable( 'disable' );
+			    ui.draggable.addClass( 'correct');
+			    ui.draggable.draggable( 'option', 'revert', false );
+
+			    if($("#score").val()<=8){
+			    	$("#score").val(parseInt($("#score").val())+1);
+			    }
+
+			    if($("#score").val()==8){
+			    	playAudio("aud/aplausos.mp3");
+			    	setTimeout(function(){ window.location.href="act23.html" }, 4000);
+			    }
+		  	}else{
+		  		playAudio("aud/badtry.mp3");
+		  	}		
+		}		
+	</script>
+</body>
+</html>

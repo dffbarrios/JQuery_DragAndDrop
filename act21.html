@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+	<meta charset="utf-8"/>
+	<title>Loteria del Saber</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="img/logo.png"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+</head>
+<body>
+	<div class="container-fluit">
+		<section class="row">
+				<section class="col-xs-12">	
+					<header>
+						<img class='logo-vallegrande' src="img/gv.jpg" alt="Error"></img>
+						<h1>Loteria del saber</h1>
+						<h2>Gimnasio Vallegrande</h2>
+					</header>
+				</section>
+		</section>
+		<div class='contenedor'>	
+			<section class="row">
+					<section class="col-xs-12 col-md-12 text-center">				
+						<h2 class="text-primary">Actividad 21</h2>					
+						<h5>Fui de compras al supermercado y me compre 2 chocolatinas, 3 galletas y 4 chupetas</h5>
+						<h5>¿Cuantos dulces compre en total?</h5>
+					</section>
+			</section>
+			<section class="row">
+				<div id="content" class="col-xs-12 col-md-12 text-center container-activity">
+					<div id="elements">	
+						<div id="NRA1" data-text="NA" class="element element-activity-20">
+							A) 10
+						 </div>		 
+						<div id="RTA" data-text="NA" class="element element-activity-20">
+							B) 9
+						</div>
+						<div id="NRA2" data-text="NA" class="element element-activity-20">
+							C) 16 
+						</div>
+						<div id="NRA3" data-text="NA" class="element element-activity-20">
+							D) 19
+						</div>
+					</div>	
+					<p id='mensaje-suma' class='mensajes-suma' style='margin-top:2em;' ></p>
+				</div>
+				<input type="hidden" id="score" value="0"></input>
+			</section>
+		</div>
+	</div>
+	<div class="clearfix visible-sm-block"></div>
+ 	<audio autoplay loop>
+			<source src="aud/cortina-bienvenida.ogg" type="audio/ogg"/>
+			<source src="aud/cortina-bienvenida.mp3" type="audio/mpeg"/>
+	</audio>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript">
+		
+		$("#RTA").click(function(){
+			playAudio("aud/correcto.mp3");
+			$("#RTA").removeClass('incorrect');
+			$("#mensaje-suma").removeClass('incorrect');
+			$("#RTA").addClass('correct');	
+			$("#mensaje-suma").addClass('correct');
+			$("#mensaje-suma").fadeIn();
+			$("#mensaje-suma").text("¡Muy bien! Compre 9 dulces en total");
+			setTimeout(function(){ $("#RTA").fadeOut(); },3000);
+			setTimeout(function(){ 
+				 	window.location.href="act22.html";
+				 	},3000);
+		});	
+
+		$("#NRA1").click(function(){ 
+			playAudio("aud/badtry.mp3");
+			$("#NRA1").addClass('incorrect');
+			$("#mensaje-suma").addClass('incorrect');
+			$("#mensaje-suma").text("No es correcto. Intentalo nuevamente.").fadeIn();
+			setTimeout(function(){ $("#NRA1").fadeOut(); $("#mensaje-suma").fadeOut(); },1000); });	
+
+
+		$("#NRA2").click(function(){ 
+			playAudio("aud/badtry.mp3");
+			$("#NRA2").addClass('incorrect');
+			$("#mensaje-suma").addClass('incorrect');
+			$("#mensaje-suma").text("No es correcto. Intentalo nuevamente.").fadeIn();
+			setTimeout(function(){ $("#NRA2").fadeOut(); $("#mensaje-suma").fadeOut(); },1000); });
+
+
+		$("#NRA3").click(function(){ 
+			playAudio("aud/badtry.mp3");
+			$("#NRA3").addClass('incorrect');
+			$("#mensaje-suma").addClass('incorrect');
+			$("#mensaje-suma").text("No es correcto. Intentalo nuevamente.").fadeIn();			
+			setTimeout(function(){ $("#NRA3").fadeOut(); $("#mensaje-suma").fadeOut();},1000); });
+	</script>
+</body>
+</html>

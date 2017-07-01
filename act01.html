@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es-co">
+<head>
+	<meta charset="utf-8"/>
+	<title>Loteria del Saber</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="img/logo.png"/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css"/>
+</head>
+<body>
+	<div class="container-fluit">
+		<section class="row">
+				<section class="col-xs-12">	
+					<header>
+						<img class='logo-vallegrande' src="img/gv.jpg" alt="Error"></img>
+						<h1>Loteria del saber</h1>
+						<h2>Gimnasio Vallegrande</h2>
+					</header>
+				</section>
+		</section>
+		<div class='contenedor'>	
+			<section class="row">
+					<section class="col-xs-12 col-md-12 text-center">				
+							<h2 class="text-primary">Actividad 1</h2>					
+							<h5>
+									Selecciona y arrastra el recuadro azul las imagenes que corresponden a seres vivos del reino vegetal
+							</h5>
+					</section>
+			</section>
+			<section class="row">	
+				<section class="col-xs-12">
+						<div id="content" class="col-xs-12">
+							<div id="elements">		
+								<div id="colibri" class="element element-1">
+									 <img class="imagen-actividad-1" src="img/colibri.jpg" alt="error" title="Colibri">
+								 </div>					 
+								<div id="violeta" class="element element-1">
+									 <img class="imagen-actividad-1" src="img/violeta.jpg" alt="error" title="Violeta">
+								</div>	
+								<div id="fiesta" class="element element-1">
+									 <img class="imagen-actividad-1" src="img/fiesta.jpg" alt="error" title="Fiesta">
+								 </div>	
+								 <div id="arbol1" class="element element-1">
+									 <img class="imagen-actividad-1" src="img/arbol1.jpg" alt="error" title="Arbol">
+								 </div>	
+								 <div id="planta" class="element element-1">
+									 <img class="imagen-actividad-1" src="img/planta.jpg" alt="error" title="Colibri">
+								 </div>	
+								 <div id="conejo" class="element element-1">
+									 <img class="imagen-actividad-1" src="img/conejo.jpg" alt="error" title="Conejo">
+								 </div>	
+								 <div id="telefono" class="element element-1">
+									 <img class="imagen-actividad-1" src="img/telefono.png" alt="error" title="Telefono">
+								 </div>	
+								 <div id="maceta" class="element element-1">
+									 <img class="imagen-actividad-1" src="img/maceta.jpg" alt="error" title="Maceta">
+								 </div>	
+							</div>
+							<div id="external-square-response" class="container-activity-response-ex">	
+								<div id="internal-square-response" class="container-activity-response-in">	
+
+								</div>
+							</div>
+						</div>
+						<input type="hidden" id="score" value="0"></input>
+					</section>
+			</section>					
+		</div>
+		
+	</div>			
+	<div class="clearfix visible-sm-block"></div>
+ 	<audio autoplay loop>
+			<source src="aud/cortina-bienvenida.ogg" type="audio/ogg"/>
+			<source src="aud/cortina-bienvenida.mp3" type="audio/mpeg"/>
+	</audio>
+	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript">
+		$( init );
+		function init() {
+			$('#colibri').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#violeta').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#fiesta').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#arbol1').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#planta').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#conejo').draggable( { containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#telefono').draggable({ containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			$('#maceta').draggable({ containment: '#content', stack: '#elements div', cursor: 'move', snap: '#content', revert: true });
+			
+			$('#internal-square-response').droppable( {
+				accept: '#elements div',
+      			hoverClass: 'hovered',
+    			drop: handleDropEvent
+  			});
+		}
+
+		function handleDropEvent( event, ui ) {
+		  	var draggable = ui.draggable;
+		  	
+		  	if( 
+		  		ui.draggable.attr('id')=="violeta"||
+		  		ui.draggable.attr('id')=="arbol1"||
+		  		ui.draggable.attr('id')=="planta"||
+		  		ui.draggable.attr('id')=="maceta"
+		  	){
+		  		playAudio("aud/correcto.mp3");
+			    ui.draggable.draggable( 'disable' );
+			    ui.draggable.addClass( 'correct' );
+			    ui.draggable.draggable( 'option', 'revert', false );
+			   
+			    if($("#score").val()<4){
+			    	$("#score").val(parseInt($("#score").val())+1);
+			    }
+			    
+			    if($("#score").val()==4){
+			    	playAudio("aud/aplausos.mp3");
+			    	setTimeout(function(){ window.location.href="act02.html" }, 4000);
+			    }	
+			    
+		  	}else{
+		  		playAudio("aud/badtry.mp3");
+		  	}
+		}		
+	</script>
+</body>
+</html>

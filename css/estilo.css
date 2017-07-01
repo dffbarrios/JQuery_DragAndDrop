@@ -1,0 +1,294 @@
+*{
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body{
+	background-color: rgb(204, 255, 255);
+}
+
+header{
+	position:absolute;
+	background-color: rgb(51, 153, 255);
+	top:0;
+	width:100%;
+	height:10em;	
+	font-variant: small-caps;
+	text-align: center;
+	text-shadow: 2px 2px #8a8a5c;
+	color: rgb(255, 255, 255);
+	border-bottom: double;
+}
+
+header img.logo-vallegrande{
+	float:left;
+	margin-left:1em;
+	margin-top:1em;
+	border-radius: 3em;
+	width: 8em;
+}
+
+header h1{
+	font-size: 4em;
+}
+
+header h2{
+	font-size: 2em;
+}
+
+h2{
+	font-variant: small-caps;
+}
+
+footer{
+	background-color: rgb(51, 153, 255);
+	font-size: 0.8em;
+	font-weight: lighter;
+	text-align: center;
+	color: white;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2em;
+}
+
+
+.element{
+	display: inline-block;
+	margin-left: 1em;
+	background: white;
+	text-align: center;
+	border-radius: 0.5em;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+
+/*Clases CSS*/
+.contenedor{
+	margin-top:10em;
+	text-align: center;
+	/*background-color: red;*/
+}
+
+
+/*Actividad 1*/
+.imagen-actividad-1{
+	width: 80px;
+	height: 80px;
+	margin-top:0.4em;
+}
+
+.element-1{
+	display: inline-block;
+	margin-left: 1em;
+	width: 10%;
+	height: 25%; 
+	background: white;
+	text-align: center;
+	border-radius: 0.5em;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+.container-activity-response-ex{
+	position: relative;
+	margin-top:5%;
+	height: 10em;
+	background-color:white;
+	border-radius: 0.5em;
+}
+
+.container-activity-response-in{
+	position: relative;
+	top:30%;
+	height:40%;
+	background-color: rgb(51, 153, 255);
+}
+
+/*Actividad 2*/
+.element-2{
+	margin:1em;
+	width: 3.5em;
+}
+
+.responses-activity-2{
+	position: relative;
+	text-align: center;
+}
+
+.response-activity-2{	
+	display:inline-block;
+	background-color: white;
+	border:solid 1px red;
+	width:5em;
+	height: 5em;
+	padding:0.5em;
+}
+
+img.imagen-response-activity-2{
+	width:50px;
+	height:50px;
+}
+
+/*Actividad 3-10*/
+.element-activity-3,
+.element-activity-4,
+.element-activity-5,
+.element-activity-6,
+.element-activity-7,
+.element-activity-8,
+.element-activity-9,
+.element-activity-10 {
+	margin:0.1em;
+	display:inline-block;
+	background-color: white;
+	border:solid 1px red;
+	width:3em;
+	text-align: center;
+}
+
+.response-activity-3,
+.response-activity-4,
+.response-activity-5,
+.response-activity-6,
+.response-activity-7,
+.response-activity-8,
+.response-activity-9,
+.response-activity-10{
+	margin:0.3em;
+	display:inline-block;
+	background-color: white;
+	border:solid 1px red;
+	width:5em;
+	height:2em;
+	text-align: center;
+}
+
+/*Actividad 11-12*/
+.container-element-activity-11,
+.container-element-activity-12
+{
+	display: inline-block;
+	margin-left: 1.1em;
+	width: 8em;
+	height: 8em; 
+	background: white;
+	text-align: center;
+	border-radius: 0.5em;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+.text-element-activity-11,
+.text-element-activity-12
+{
+	background-color: rgb(51, 153, 255);
+	font-variant: small-caps;
+	color:white;
+}
+
+.element-activity-11{}
+
+/*Actividad 13-15*/
+.element-activity-13,
+.element-activity-14,
+.element-activity-15,
+.element-activity-16{
+	border:0.1em red solid;
+	border-radius: 0.2em;
+	width:5em;
+}
+
+/*Actividad 16-19*/
+input.sumar-1{
+	height: 9em;
+	color:blue;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center; 
+}
+
+.mensajes-suma{
+	width:50%;
+	margin:0 auto;
+}
+
+/*Actividad 20-21*/
+.element-activity-20,
+.element-activity-21{
+	width: 8em;
+	height: 2em;
+	margin:2em;
+	border:0.1em solid red;
+	border-radius: 0.2em;
+}
+
+.response-activity-22,
+.response-activity-23,
+.response-activity-24
+{	
+	display:inline-block;
+	background-color: white;
+	border:solid 1px red;
+	height: 3em;
+	width: 5em;
+	padding:0.5em;
+	text-align: center;
+}
+
+.element-activity-22,
+.element-activity-23,
+.element-activity-24{
+	margin:1em;
+	width: 3em;
+	height: 2em;
+	border:0.1em solid red;
+}
+
+
+/*CSS Class*/
+.ex-square-response-activity-3{
+	margin-top:20%;
+	background-color: red;
+	width: 10%;
+	height: 10em;
+}
+
+in-square-response-activity-3{
+	background-color: white;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+.correct{
+	background: rgb(0, 128, 0);
+	color:white;
+}
+
+.incorrect{
+	background: red;
+	color:white;
+}
+
+.imagenes-actividad-1{
+	width: 80px;
+	height: 80px;
+	margin-top:0.4em;
+}
+
+.centar-porcentual{
+	position:absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+}
+
+.menu{}
+
+.container-activity{
+	height:25em;
+}
